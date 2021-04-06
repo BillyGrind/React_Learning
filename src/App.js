@@ -1,34 +1,12 @@
-import './App.css';
-import { useState } from 'react';
-import Item from './Item'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import Form from './Composants/Form.js'
 
 function App() {
 
-const [dataArr,setDataArr] = useState(
-  [
-    {nom: "Juliette"},
-    {nom: "JOHHHHN"},
-    {nom: "Jorsi"},
-
-  ]
-);
-
-
-  const [toggle, setToggle] = useState(true);
-  const changeState = () => {
-    setToggle(!toggle)
-  }
-
   return (
     <div className="App">
-      <div className={toggle ? "box animated" : "box"}></div>
-      <button onClick={changeState}>Changer state</button>
-      
-      {dataArr.map(item =>{
-        return <p>Nom: {item.nom}</p>
-      })}
-    
-    
+      <h1 className="text-center mt-3">To Do List</h1>
+      <Form />
     </div>
   );
 }
