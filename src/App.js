@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Item from './Item'
 
 function App() {
+
+const [dataArr,setDataArr] = useState(
+  [
+    {nom: "Juliette"},
+    {nom: "JOHHHHN"},
+    {nom: "Jorsi"},
+
+  ]
+);
+
+
+  const [toggle, setToggle] = useState(true);
+  const changeState = () => {
+    setToggle(!toggle)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className={toggle ? "box animated" : "box"}></div>
+      <button onClick={changeState}>Changer state</button>
+      
+      {dataArr.map(item =>{
+        return <p>Nom: {item.nom}</p>
+      })}
+    
+    
     </div>
   );
 }
